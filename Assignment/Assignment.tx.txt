@@ -1,0 +1,75 @@
+#1st assignment complete
+#open file in read mode
+with open ("Example.txt",'r') as file_handle:
+    #read file content into list
+    lines = file_handle.read().splitlines()
+print(lines)
+
+#2nd Assignment
+from datetime import date
+d1 = date (2007, 2,20)
+d2 = date (2007,11,20)
+value = d2 - d1
+print(value.days)
+    
+from datetime import date
+f_date = date(2007, 2, 20)
+l_date = date(2007,11, 20)
+value = l_date - f_date
+print(value.days)
+
+#3rd Assignment
+import json
+j_str = {'3': 5, '6': 7, '1': 3, '2': 4}
+print("Original String:")
+print(j_str) 
+print("\nJSON data:")
+print(json.dumps(j_str, sort_keys=True, indent=4))
+
+#4th assignment
+List = [{'make':'Nokia', 'model':216, 'color':'Black'}, {'make':'Mi Max', 'model':'2', 'color':'Gold'}, {'make':'Samsung', 'model': 7, 'color':'Blue'}]
+print("Original list of dictionaries :")
+print(List)
+sorted_List = sorted(List, key = lambda x: x['color'])
+print("\nSorted List of dictionaries :")
+print(sorted_List)
+
+#5th assignment
+def count_words(filepath):
+   with open(filepath) as f:
+       data = f.read()
+       data.replace(",", " ")
+       return len(data.split(" "))
+print(count_words("Example.txt"))
+
+#6th assignment
+import array
+import binascii
+a = array.array('i', [1,2,3,4,5,6])
+print("Original array:")
+print('A1:', a)
+bytes_array = a.tobytes()
+print('Array of bytes:', binascii.hexlify(bytes_array))
+
+#7th assignment
+import os 
+file_number = 0 
+file_size = 0 
+while True: 
+ if file_size < 2e+6: 
+   try: 
+     file = open('Example1%d.txt'%file_number, 'x') 
+   except: 
+      pass 
+   file = open('Example1%d.txt'%file_number) 
+   text = file.read() + 'H' 
+   file = open('Example1%d.txt'%file_number, 'w') 
+   file.write(text) 
+ file_size = os.stat('Example1%d.txt'%file_number) .st_size 
+ if file_size > 2e+6: 
+   file_number += 1 
+   file_size = 0 
+
+
+    
+        
